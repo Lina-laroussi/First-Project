@@ -1,0 +1,43 @@
+<table>
+<tr>
+  <td>ref</td>
+  <td>Titre</td>
+  <td>Descriptions</td>
+</tr>
+
+{% set x =0 %}
+{% set y =0 %}
+{% for i in tab %}
+{% set y= y + i.nb_participants  %}
+{% if i.nb_participants > 0 %}
+{% if i.nb_participants > x %}
+{% set x= i.nb_participants %}
+
+
+<tr>
+
+  <td>{{ i.ref }}</td>
+  <td>{{ i.Titre | upper}}</td>
+  <td>{{ i.Description }}</td>
+
+
+</tr>
+{% endif %}
+{% endif %}
+
+<a href="{{path('app_detail' , {'name':i.Titre})}}">details</a>
+{% endfor %}
+
+nbre de formations = {{tab | length}}</br>
+nbre maximale de participants =  {{ x }}</br>
+
+nbre totale de participants = {{ y }}
+
+{# verifier si le tableau est vide ou non #}
+{% if tab |length !=0 %}
+  le tableau est non vide
+{% endif %}
+
+</table>
+
+
