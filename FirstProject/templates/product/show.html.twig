@@ -1,0 +1,19 @@
+<table>
+<tr>
+  <td> Ref </td>
+  <td> name </td>
+  <td> description </td>
+  <td> action </td>
+</tr>
+
+{% for product in products %}
+<tr>
+    <td>{{product.ref}}</td>
+    <td>{{product.name }}</td>
+    <td>{{product.description }}</td>
+    <td> <a href="{{path('updateproduct',{'ref':product.ref })}}"/>Modifier</td>
+    <td> <a href="{{path('removeproduct', {'ref':product.ref})}}"/>remove</td>
+    <td> <a href="{{path('detailproduct', {'ref':product.ref})}}"/>detail</td>
+</tr>
+{%endfor%}
+</table>
